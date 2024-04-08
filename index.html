@@ -1,0 +1,692 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>project-page</title>
+    <link rel="icon" href="https://logosandtypes.com/wp-content/uploads/2024/02/Danaher.png">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
+          crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+            crossorigin="anonymous"></script>
+    <script src="https://cdn.lordicon.com/lordicon.js"></script>
+</head>
+<style>
+    body {
+        margin: 0;
+        background-color: white;
+    }
+
+    ul {
+        list-style-type: none;
+        margin: 0;
+        padding: 0;
+        width: 25%;
+        background-color: white;
+        position: fixed;
+        height: 100%;
+        overflow: auto;
+    }
+
+    li a {
+        display: block;
+        color: #000;
+        padding: 8px 16px;
+        text-decoration: none;
+    }
+
+    li a.active {
+        background-color: aliceblue;
+        color: white;
+    }
+
+    li a:hover:not(.active) {
+        background-color: #dadada;
+        color: black;
+        border-radius: 10px;
+    }
+
+    /* Icon  */
+    .icon {
+        width: 70px;
+        height: 70px;
+        margin-left: 15px;
+        margin-top: 5px;
+        border-radius: 15px;
+        border: 1px solid white;
+    }
+ #navcard{
+     width: 80%;margin-left:30px;background-color: darkgray;margin-top: 10px;height: 70px;border-radius: 15px
+ }
+    .card {
+        display: flex;
+        align-items: center;
+        padding: 20px;
+        border-radius: 15px;
+        background-color: #fff;
+        box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+        transition: 0.3s;
+        width: 100%;
+         height: 70px;
+    }
+
+    .card-icon {
+        border-radius: 50%;
+        width: 50px;
+        margin-right: 15px;
+    }
+
+    .card-content h2 {
+        margin: 6px 0 0 0;
+        font-weight: 500;
+
+    }
+
+    .card-content p {
+        margin: 0;
+        position: relative;
+        bottom: 9px;
+    }
+
+    .card-arrow {
+        margin-left: auto;
+        width: 20px;
+    }
+
+    /* Add responsiveness to the card */
+    @media (max-width: 600px) {
+        .card {
+            flex-direction: column;
+            width: 80%;
+        }
+
+        .card-arrow {
+            margin-top: 10px;
+        }
+    }
+/*    create post card*/
+    .post-card {
+        width: 580px;
+        height: 250px;
+        padding: 20px;
+        border: 1px solid #ccc;
+        border-radius: 10px;
+        box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        margin: 20px;
+        font-family: 'Arial', sans-serif;
+    }
+
+    .post-card h2 {
+        margin: 0;
+        padding-bottom: 10px;
+        border-bottom: 1px solid #eee;
+    }
+
+    .post-content input[type="text"] {
+        width: calc(100% - 20px);
+        padding: 10px;
+        margin-top: 10px;
+        border: 1px solid #ddd;
+        border-radius: 5px;
+    }
+
+    .media-options {
+        margin-top: 40px;
+        text-align: center;
+    }
+
+    .media-options button {
+        background-color: lch(97.89% 1.46 19.8);
+        border: 1px solid white;
+        padding: 10px 15px;
+        border-radius: 5px;
+        cursor: pointer;
+        margin-right: 5px;
+    }
+
+    .media-options button:last-child {
+        margin-right: 0;
+    }
+
+    .publish-btn {
+        color: white;
+
+        border: 1px solid #4267B2;
+        border-radius: 40px !important;
+        margin-top: 10px;
+        width: 25%;
+        cursor: pointer;
+
+    }
+    ::placeholder{
+        color:black;
+    }
+  /*End of create post card*/
+
+    /* Start of info card */
+    .info-card {
+        width: 580px;
+        height: 290px;
+        padding: 20px;
+        border: 1px solid #ccc;
+        border-radius: 10px;
+        box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        margin: 20px;
+        font-family: 'Arial', sans-serif;
+    }
+
+    .info-card h2 {
+        margin: 0;
+        padding-bottom: 10px;
+        border-bottom: 1px solid #eee;
+    }
+
+    .info-content input[type="text"] {
+        width: calc(100% - 20px);
+        padding: 10px;
+        margin-top: 10px;
+        border: 1px solid #ddd;
+        border-radius: 5px;
+    }
+    .info-btn {
+        color: white;
+        border: 1px solid #4267B2;
+        border-radius: 40px !important;
+        margin-top: 10px;
+        width: 25%;
+        cursor: pointer;
+
+    }
+         /* events cards  */
+
+    .event button:hover{
+        background-color: lightgray !important;
+        border-radius: 10px;
+    }
+
+
+    /* End of events cards*/
+</style>
+
+<body>
+<!-- Navbar -->
+<div style="width: 25% ;background-color: white !important; border: 1px">
+    <ul>
+                    <div>
+                      <div style="display: flex; flex-flow: row;">
+                         <div><img src="https://logosandtypes.com/wp-content/uploads/2024/02/Danaher.png" alt="logo" class="icon"></div>
+                         <div><span style="padding-left: 5px;font-size: xx-large; position: relative;top: 15px;font-family: 'Bell MT';">Inter</span></div>
+                      </div>
+                   </div>
+        <div  id="navcard" >
+            <!-- HTML structure for the card -->
+            <div class="card" style="display: flex; flex-flow: row; margin-top: 0%">
+                <img src="https://em-content.zobj.net/source/microsoft-teams/363/smiling-face-with-hearts_1f970.png" alt="Icon" class="card-icon">
+                <div class="card-content">
+                    <h3>Fine Arts</h3>
+                    <p>Workspace</p>
+                </div>
+                <img src="https://static.thenounproject.com/png/424315-200.png" alt="Arrow" class="card-arrow">
+            </div>
+
+        </div>
+
+          <li><a href="#hgi">
+                 <div style="display: flex; flex-flow: row;">
+                        <div style="padding-left: 50px;margin-top: 10px">
+                        <img src="https://cdn-icons-png.freepik.com/256/12176/12176993.png" alt="Dashboard" style="width:30px;height: 30px">
+                        <span style="padding-left: 15px">Dashboard</span>
+                        </div>
+                 </div>
+          </a>
+          </li>
+
+        <li><a href="#hgizxc">
+            <div style="display: flex; flex-flow: row;">
+                <div style="padding-left: 50px;margin-top: 10px">
+                    <lord-icon
+                            src="https://cdn.lordicon.com/xcxzayqr.json"
+                            trigger="hover"
+                            style="width:30px;height:30px">
+                    </lord-icon>
+                    <span style="padding-left: 15px;position: relative;bottom: 8px">Community</span>
+                </div>
+            </div>
+        </a>
+        </li>
+        <li><a href="#hgibnm">
+            <div style="display: flex; flex-flow: row;">
+                <div style="padding-left: 50px;margin-top: 10px">
+                    <lord-icon
+                            src="https://cdn.lordicon.com/egmlnyku.json"
+                            trigger="hover"
+                            colors="primary:#66a1ee,secondary:#ffc738,tertiary:#4bb3fd,quaternary:#ebe6ef"
+                            style="width:40px;height:40px">
+                    </lord-icon>
+                    <span style="padding-left: 15px;position: relative;bottom: 8px">Chat</span>
+                </div>
+            </div>
+        </a>
+        </li>
+        <li><a href="#hgibnm">
+            <div style="display: flex; flex-flow: row;">
+                <div style="padding-left: 50px;margin-top: 1px">
+                    <lord-icon
+                            src="https://cdn.lordicon.com/ipnaieaf.json"
+                            trigger="hover"
+                            colors="primary:#848484,secondary:#000000"
+                            style="width:40px;height:40px">
+                    </lord-icon>
+                    <span style="padding-left: 15px;position: relative;bottom: 15px">Settings</span>
+                </div>
+            </div>
+        </a>
+        </li>
+
+        <li><a href="#hgi" style="position: absolute;top: 5px">
+            <div style="display: flex; flex-flow: row;">
+
+                <ul>
+                    <li style=" position: relative;bottom: 8px">
+                    <div>
+
+                        <span style="padding-left: 20px;padding-top: 10px;">SHORTCUTS</span>
+                    </div>
+                    </li>
+                    <li><a href="#hgi" style="position:relative;top: 25px">
+                        <div style="display: flex; flex-flow: row;">
+                            <div style="padding-left: 50px;margin-top: 10px">
+                                <lord-icon
+                                        src="https://cdn.lordicon.com/mfzonmkf.json"
+                                        trigger="hover"
+                                        colors="primary:#3080e8,secondary:#3a3347"
+                                        style="width:40px;height:40px">
+                                </lord-icon>
+                                <span style="padding-left: 15px;position: relative;bottom: 15px">Scan</span>
+                            </div>
+                        </div>
+                    </a>
+                    </li>
+                    <li><a href="#hgi" style="position:relative;top: 16px">
+                        <div style="display: flex; flex-flow: row;" id="Newtopic">
+                            <div style="padding-left: 50px;margin-top: 10px">
+                                <lord-icon
+                                        src="https://cdn.lordicon.com/ylvuooxd.json"
+                                        trigger="hover"
+                                        style="width:40px;height:40px">
+                                </lord-icon>
+                                <span style="padding-left: 15px;position: relative;bottom: 15px">Draw</span>
+                            </div>
+                        </div>
+                    </a>
+                    </li>
+                    <li><a href="#hgiqw" style="position:relative;top: 8px">
+                        <div style="display: flex; flex-flow: row;">
+                            <div style="padding-left: 50px;margin-top: 10px">
+                                <lord-icon
+                                        src="https://cdn.lordicon.com/hntobqbr.json"
+                                        trigger="hover"
+                                        style="width:40px;height:40px">
+                                </lord-icon>
+                                <span style="padding-left: 15px;position: relative;bottom: 15px">Add a shortcut</span>
+                            </div>
+                        </div>
+                    </a>
+                    </li>
+                    <li style="position:relative;top: 8px"><a href="#hgfhj">
+                        <div style="display: flex; flex-flow: row;align-items: center">
+                            <div style="padding-left: 45px;margin-top: 10px;background-color: blue;border-radius: 25px;margin-left: 40px">
+                                <lord-icon
+                                        src="https://cdn.lordicon.com/ftndcppj.json"
+                                        trigger="hover"
+                                        colors="primary:#ffffff,secondary:#0000FF"
+                                        style="width:40px;height:40px;position: relative;right: 30px;top: 2px">
+                                </lord-icon>
+                                <span style="padding-left: 5px;position: relative;bottom: 15px;margin-right: 45px;color: white;position: relative;right: 20px;bottom: 13px;font-size: large">New project</span>
+                            </div>
+                        </div>
+                    </a>
+                    </li>
+                </ul>
+
+            </div>
+        </a>
+        </li>
+
+
+
+    </ul>
+
+</div>
+<!-- End of Navbar -->
+
+<!--<div class="float-end">Float end on all viewport sizes</div><br>-->
+<div style="margin-left: 25% ; background-color: white">
+<div style="  border: black; background-color:white;">
+   <div style="display: grid">
+       <!-- Top icons-->
+        <div style="position: relative;left: 77%;bottom: 7px;">
+            <ul>
+                <li style="display: inline-block;">
+            <div style="position: relative;top: 20px">
+            <a href="#nj">
+                <lord-icon
+                        src="https://cdn.lordicon.com/ybaojceo.json"
+                        trigger="hover"
+                        colors="primary:#242424,secondary:#4bb3fd,tertiary:#b26836"
+                        style="width:40px;height:40px">
+                </lord-icon>
+            </a>
+            </div></li>
+                <li style="display: inline-block">
+            <div style="position: relative;top: 5px">
+                <a href="#hj">
+                    <img src="https://cdn-icons-png.freepik.com/512/8184/8184279.png" style="width: 50px;height: 50px">
+                </a>
+            </div>
+                </li>
+                <li style="display: inline-block">
+
+                    <a href="#er">
+                        <img src="https://cdn1.iconfinder.com/data/icons/facely-metapeople-3d-avatar-set/512/17._Designer.png" style="width: 50px;height: 50px;border: 0px solid white;border-radius: 20px">
+                    </a>
+                </li>
+            </ul>
+        </div>
+       <!--End of Top icons-->
+
+       <!-- News event -->
+
+       <div style="margin-left: 60%;position: relative;top: 10vh;" >
+           <div style="position: static">
+
+               <div style="position: relative;top: 5vh;" >
+
+                   <button class="event"  style="position:relative;background-color: white;border: 1px solid white;width: 70px;height: 35px;display: inline-block;">Events</button>
+                   <button  class="event"  style="position: relative;background-color: white;border: 1px solid white;width: 70px;height: 35px;display: inline-block;">News</button>
+                   <button   class="event"   style="position: relative;background-color: white;border: 1px solid white;width: 70px;height: 35px;display: inline-block;">Soon</button>
+               </div>
+               <div style="position: relative;top: 8vh;height:84vh;width: 400px;border: 1px solid white; background-color: #fff;box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);">
+                 <h5 style="padding-left: 1.5vw;padding-top: 2.5vh">Upcoming event</h5>
+                   <span style="padding-left: 23vw;position: relative;bottom: 4vh"><img style="width:20px;height:20px; " src="https://cdn-icons-png.flaticon.com/512/149/149403.png"></span>
+                   <p style="font-size: 25px;padding-left: 1.5vw">👶</p>
+                   <div style="background-color:whitesmoke;width: 5vw;height: 15vh;position: relative;bottom: 6.5vh;left: 42vh;border: 1px whitesmoke;border-radius: 10px;">
+                       <p style="font-size: 35px;padding-left: 15px;padding-top: 15px">13</p>
+                       <p style="padding-left: 19px;position: relative;bottom: 17px">MON</p>
+                   </div>
+                   <h4 style="position: relative;bottom: 16.5vh;left: 1.5vw">Children's room</h4>
+                   <div style="position: relative;bottom: 16.5vh">
+                   <p style="position: relative;left: 1.3vw">The baby will born soon.Will we try to</p>
+                   <p style="position: relative;left: 1.3vw;bottom: 2vh">prepare something for this occasion?</p>
+                   </div>
+                   <h6 style="position: relative;bottom: 18vh;left: 1.5vw">Details</h6>
+                   <div>
+                       <div style="position: relative;bottom: 17vh;left: 1.2vw">
+                           <lord-icon
+                                   src="https://cdn.lordicon.com/qwjfapmb.json"
+                                   trigger="hover"
+                                   style="width:40px;height:40px">
+                           </lord-icon>
+
+                           <span style="font-size: 15px;position: relative;bottom: 1.8vh">Task : practice</span>
+                       </div>
+                       <div style="position: relative;bottom: 17vh;left: 2.2vh">
+                           <lord-icon
+                                   src="https://cdn.lordicon.com/wmlleaaf.json"
+                                   trigger="hover"
+                                   colors="primary:#3080e8"
+                                   style="width:40px;height:40px">
+                           </lord-icon>
+                           <span style="position: relative;font-size: 15px;bottom: 1.8vh">Date:13.07-1.08.2024</span>
+                       </div>
+                   </div>
+                     <h6 style="position: relative;bottom: 16.5vh;left: 1.5vw">Resources</h6>
+                   <div>
+                       <div style="width: 350px;height: 100px;background-color:white;position: relative;left: 1.5vw;bottom:15vh ;">
+                           <!-- wireframe -->
+                           <div style="width: 170px;height: 120px;background-color:whitesmoke;border-radius: 10px ">
+                                 <p style="position: relative;left: 0.6vw;top: 1vh">Wireframes</p>
+                                  <img style="width: 15px;height: 15px;position: relative;left: 9vw;bottom: 5.8vh" src="https://cdn-icons-png.flaticon.com/512/149/149403.png">
+                                  <img style="width: 50px;height: 50px;position: relative;top:2vh;right: 0.5vw" src="https://cdn.iconscout.com/icon/free/png-256/free-wireframe-web-4-1145038.png">
+                               <img style="width: 50px;height: 50px;position: relative;top:2vh;left: 1vw" src="https://cdn.iconscout.com/icon/free/png-256/free-wireframe-web-4-1145038.png">
+                           </div>
+                           <!-- Instructions -->
+                           <div style="width: 160px;height: 120px;position: relative;left: 13vw;background-color:whitesmoke;bottom:16.7vh;border-radius: 10px ">
+                               <p style="position: relative;left: 0.6vw;top: 1vh">Instructions</p>
+                               <img style="width: 15px;height: 15px;position: relative;left: 9vw;bottom: 8.6vh" src="https://cdn-icons-png.flaticon.com/512/149/149403.png">
+                               <lord-icon
+                                       src="https://cdn.lordicon.com/yqiuuheo.json"
+                                       trigger="hover"
+                                       colors="primary:#ffffff,secondary:#3080e8"
+                                       style="width:50px;height:50px;position: relative;top: 1.6vh;right: 0.5vw">
+                               </lord-icon>
+                               <lord-icon
+                                       src="https://cdn.lordicon.com/yqiuuheo.json"
+                                       trigger="hover"
+                                       colors="primary:#ffffff,secondary:#3080e8"
+                                       style="width:50px;height:50px;position: relative;top: 1.6vh;right: 0.5vw">
+                               </lord-icon>
+                           </div>
+                       </div>
+                   </div>
+                     <div style="position: relative;bottom: 9vh;left: 1.5vw">
+                         <button style="background: deepskyblue;color: white;border: 1px deepskyblue;width: 150px;border-radius: 25px;height: 50px">
+                             <lord-icon
+                                     src="https://cdn.lordicon.com/guqkthkk.json"
+                                     trigger="hover"
+                                     colors="primary:#ffffff"
+                                     style="width:30px;height:30px;position: relative;top: 1.5vh;right: 2.5vw">
+                             </lord-icon>
+                             <p style="position: relative;left: 1.2vw;bottom: 3.1vh">Take part</p></button>
+                     </div>
+                   <lord-icon
+                           src="https://cdn.lordicon.com/qmklyewc.json"
+                           trigger="hover"
+                           stroke="bold"
+                           colors="primary:#8930e8,secondary:#c69cf4"
+                           style="width:30px;height:30px;position: relative;left: 13vw;bottom: 14.3vh">
+                   </lord-icon>
+                    <div style="position: relative;left: 33vh;bottom: 54vh">
+                        <img src="https://cdn1.iconfinder.com/data/icons/facely-metapeople-3d-avatar-set/512/17._Designer.png" style="width: 50px;height: 50px;border: 3px darkgray;border-radius: 20px;position: relative;">
+                        <img src="3d-illustration-person-with-sunglasses_23-2149436180.avif" style="width: 50px;height: 50px;border: 0px solid white;border-radius: 25px;position: relative;right: 0.9vw">
+                        <img src="https://iili.io/HrojbAF.png" style="width: 50px;height: 50px;border: 0px solid white;border-radius: 25px;position: relative;right: 1.8vw">
+
+                    </div>
+              </div>
+           </div>
+       </div>
+
+      <!-- End of News event -->
+
+
+       <!-- Welcome division -->
+       <div style="position: relative;left: 66px ;width: 36.813vw;bottom:79vh ;">
+           <div style="position: sticky;top: 0">
+             <h1 >Hello Nadish <img  style="width: 75px;height: 75px;position: relative;bottom: 2.5vh"    src="https://em-content.zobj.net/source/animated-noto-color-emoji/356/fire_1f525.gif"></h1>
+           <p style="position: relative;bottom:2.7vh;">What's New with you? Would you Like to share something with community?</p>
+           </div>
+       </div>
+
+       <!-- End of Welcome of division-->
+
+       <!-- Create post card -->
+       <div style="position: relative;bottom: 83vh;left: 40px">
+           <div class="post-card">
+               <h2>Create post</h2>
+               <div class="post-content">
+                   <div style="position: relative;top: 15px">
+                       <input type="text" placeholder=" 💬   What's up, Daniel? 🤗 " style="background-color: #DADEDF;height: 50px;"/>
+                       <i></i>
+                   </div>
+                   <div class="media-options">
+                       <button style="background-color: white;position: relative;right: 80px;height: 60px;bottom: 8px">
+                           <lord-icon
+                                   src="https://cdn.lordicon.com/bzqvamqv.json"
+                                   trigger="hover"
+                                   style="width:40px;height:40px">
+                           </lord-icon>
+                           <span style="position: relative;bottom: 15px;">Image</span><span style="position: relative; bottom: 45px;left: 75px"><p style="position: relative;top: 5px;right: 5px">|</p></span></button>
+
+                       <button style="background-color: white;position: relative;right: 70px;bottom: 9px">
+                           <lord-icon
+                                   src="https://cdn.lordicon.com/bmlkvhui.json"
+                                   trigger="hover"
+                                   stroke="light"
+                                   colors="primary:#121331,secondary:#3a3347,tertiary:#3080e8,quaternary:#ebe6ef,quinary:#ffc738,senary:#646e78,septenary:#f24c00"
+                                   style="width:40px;height:40px">
+                           </lord-icon>
+                           <span style="position: relative;bottom: 15px">Video</span></button>
+<!--
+                       <button style="background-color: white;position: relative;right: 70px;bottom: 33px">
+                           <lord-icon
+                                   src="https://cdn.lordicon.com/tdhnvcoq.json"
+                                   trigger="hover"
+                                   colors="primary:#4030e8,secondary:#ebe6ef"
+                                   style="width:40px;height:40px">
+                           <span style="position: relative;bottom: 15px;color: black">Publish</span></button>   -->
+
+                       <button class="publish-btn" style="background-color: blue;position: relative;left: 50px;border: none;height: 46.3px;bottom: 1px">
+                         <div style="position: relative;right: 30px;top: 33px">
+                             <div style="position: relative;bottom: 40px;right: 6px">
+                             <lord-icon
+                                     src="https://cdn.lordicon.com/tdhnvcoq.json"
+                                     trigger="hover"
+                                     colors="primary:#4030e8,secondary:#ebe6ef"
+                                     style="width:40px;height:40px">
+                             </lord-icon>
+                             </div>
+                         </div>
+                           <span style="padding-left: 35px;position: relative;bottom: 45px">Publish</span></button>
+                   </div>
+
+               </div>
+           </div>
+       </div>
+         <!-- End of Create post card -->
+
+         <!-- info card -->
+       <div style="position: relative;left: 40px;bottom: 84vh">
+           <div class="info-card">
+               <div>
+                   <a href="#kelly_collins">  <img src="3d-illustration-person-with-sunglasses_23-2149436180.avif" style="width: 50px;height: 50px;border: 0px solid white;border-radius: 25px"></a>
+                   <span style="position: relative;left: 12px;bottom: 10px"><b>Kelly Collins</b><br><p style="position: relative;left: 56px;bottom: 15px;color: gray">5 mins ago . public </p></span>
+                   <button style="position: relative;bottom: 83px;left: 470px;background-color: white;border: none"> <img style="width: 30px;height: 30px;" src="https://cdn-icons-png.flaticon.com/512/149/149403.png"></button>
+               </div>
+               <div class="info-content"  >
+                <!--   <div style="position: relative;top: 15px">
+                       <input type="text" placeholder="What's up, Daniel?" style="background-color: #dadada;height: 50px;"/>
+                       <i></i>
+                   </div>  -->
+
+                   <div style="background-color: #DADEDF;border: 1px  #DADEDF ;border-radius: 10px ;position: relative;bottom: 35px;height: 100px">
+                       <p style="font-size: 25px;position: relative;top:1.3vh;left: 0.5vw">👋</p>
+                          <p style="position: relative; padding: 2% 3% 0% 10%;bottom: 50px">Hey, I'm looking for a designer to help me with my project.For project details check my bio. If you're interested, please let me know. Thanks! 😊</p>
+                   </div>
+
+
+                   <div class="media-options">
+                       <!-- likes -->
+                       <button style="background-color: white;position: relative;right: 55px;height: 60px;bottom:7.8vh">
+                           <lord-icon
+                                   src="https://cdn.lordicon.com/ulnswmkk.json"
+                                   trigger="hover"
+                                   colors="primary:#e83a30"
+                                   style="width:35px;height:35px">
+                           </lord-icon>
+                           <span style="position: relative;bottom: 10px;">187 likes</span><span style="position: relative; bottom: 45px;left: 75px"></span></button>
+
+                           <!-- comment -->
+                       <button style="background-color: white;position: relative;right:75px;bottom:7.8vh">
+                           <lord-icon
+                                   src="https://cdn.lordicon.com/fdxqrdfe.json"
+                                   trigger="hover"
+                                   colors="primary:#848484"
+                                   style="width:35px;height:35px">
+                           </lord-icon>
+                           <span style="position: relative;bottom: 12px">23 comments</span></button>
+
+                           <!-- shares -->
+                       <button style="background-color: white;position: relative;right: 100px;bottom:7.8vh">
+                           <lord-icon
+                                   src="https://cdn.lordicon.com/ercyvufy.json"
+                                   trigger="hover"
+                                   colors="primary:#848484"
+                                   style="width:35px;height:35px">
+                           </lord-icon>
+                           <span style="position: relative;bottom: 12px">15 shares</span></button>
+
+                   </div>
+
+               </div>
+           </div>
+       </div>
+        <!-- end of info-card -->
+         <!-- Info card 2 -->
+       <div style="position: relative;left: 40px;bottom: 85vh">
+           <div class="info-card">
+               <div>
+                   <a href="#kyle_A_Mason"> <img src="https://iili.io/HrojbAF.png" style="width: 50px;height: 50px;border: 0px solid white;border-radius: 25px"></a>
+                   <span style="position: relative;left: 12px;bottom: 10px"><b>Kyle A Mason</b><br><p style="position: relative;left: 53px;bottom: 15px;color: gray">10 mins ago . public </p></span>
+                   <button style="position: relative;bottom: 83px;left: 470px;background-color: white;border:none"> <img style="width: 30px;height: 30px;" src="https://cdn-icons-png.flaticon.com/512/149/149403.png"></button>
+               </div>
+               <div class="info-content">
+                   <!--   <div style="position: relative;top: 15px">
+                          <input type="text" placeholder="What's up, Daniel?" style="background-color: #dadada;height: 50px;"/>
+                          <i></i>
+                      </div>  -->
+
+                   <div style="background-color: #DADEDF;border: 1px  #DADEDF ;border-radius: 10px ;position: relative;bottom: 35px;height: 100px">
+                       <p style="font-size: 25px;position: relative;top:1.3vh;left: 0.5vw">😀</p>
+                       <p style="position: relative; padding: 2% 3% 0% 10%;bottom: 50px">Hey, I'm looking for a designer to help me with my project.For project details check my bio. If you're interested, please let me know. Thanks! 😉</p>
+                   </div>
+
+
+                   <div class="media-options">
+                       <!-- likes -->
+                       <button style="background-color: white;position: relative;right: 40px;height: 60px;bottom:7.8vh">
+                           <lord-icon
+                                   src="https://cdn.lordicon.com/ulnswmkk.json"
+                                   trigger="hover"
+                                   colors="primary:#e83a30"
+                                   style="width:35px;height:35px">
+                           </lord-icon>
+                           <span style="position: relative;bottom: 10px;">1870 likes</span><span style="position: relative; bottom: 45px;left: 75px"></span></button>
+
+                       <!-- comment -->
+                       <button style="background-color: white;position: relative;right:65px;bottom:7.8vh">
+                           <lord-icon
+                                   src="https://cdn.lordicon.com/fdxqrdfe.json"
+                                   trigger="hover"
+                                   colors="primary:#848484"
+                                   style="width:35px;height:35px">
+                           </lord-icon>
+                           <span style="position: relative;bottom: 12px">230 comments</span></button>
+
+                       <!-- shares -->
+                       <button style="background-color: white;position: relative;right: 91px;bottom:7.8vh">
+                           <lord-icon
+                                   src="https://cdn.lordicon.com/ercyvufy.json"
+                                   trigger="hover"
+                                   colors="primary:#848484"
+                                   style="width:35px;height:35px">
+                           </lord-icon>
+                           <span style="position: relative;bottom: 12px">150 shares</span></button>
+
+                   </div>
+
+               </div>
+           </div>
+
+
+
+       </div>
+
+       <!-- Side event bar -->
+
+   </div>
+</div>
+</div>
+
+</body>
+</html>
